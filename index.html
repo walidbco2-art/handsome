@@ -53,6 +53,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var
 .watch .w{flex:1;min-width:0}
 .watch .w b{display:block;font-size:14px}
 .watch .w span{font-size:12px;color:var(--muted)}
+.watch.hamza{background:var(--accent);color:#fff}
+.watch.hamza .w span{color:rgba(255,255,255,.85)}
+.watch.hamza .play{background:#fff}
+.watch.hamza .play::after{border-left-color:var(--accent)}
+.watch.alt{padding:7px 12px;background:none;border:1px solid var(--line)}
+.watch.alt .play{width:26px;height:18px;border-radius:5px}
 
 /* home */
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -214,6 +220,27 @@ const VID = {
   y_raise:["ZJZRgsJJj90","Prone Y's off Incline Bench (Lower Trap Raise)","The Strength House","2:40"],
   ez_curl:["Gydpcouclx8","Conquer the EZ-Bar Preacher Curl","Men's Health","1:26"],
   plank:["pSHjTRCQxIw","How To: Plank","ScottHermanFitness","1:17"]
+};
+// Hamza's own demos (Aesthetic Body course, Skool). Opens the lesson; skip to the time shown.
+const SKOOL = "https://www.skool.com/library-of-adonis/classroom/a8f70c7b?md=";
+const HAMZA = {
+  neck_curl:["85ea5eb2bc03495689bab9a476e0de3f","Neck","0:53","Neck curl, no weight then with a plate"],
+  neck_ext:["85ea5eb2bc03495689bab9a476e0de3f","Neck","3:03","Backwards neck curl"],
+  bb_shrug:["0c03411efa57486697c9921750cd717a","Traps","1:30","Barbell grip and shrug"],
+  incline_db:["2673b1dc4c7249b89870f93a45ce124e","Chest","3:23","Incline dumbbell press"],
+  dip:["2673b1dc4c7249b89870f93a45ce124e","Chest","2:13","Ring dips"],
+  lat_raise:["7d6dd6a9a5e54a39bd11c395954afac4","Lateral Delts","1:44","Dumbbell lateral raise"],
+  face_pull:["fc36bed54d4148508010b0bca60c67e7","Rear Delts","1:24","Cable face pull"],
+  pullup:["423e16a6fa8e405eb004ef500fde2392","Lats","1:07","Chin-ups and grip options"],
+  bb_row:["423e16a6fa8e405eb004ef500fde2392","Lats","2:34","Barbell row setup and rows"],
+  rev_pulldown:["423e16a6fa8e405eb004ef500fde2392","Lats","4:46","Lat pulldown"],
+  cable_curl:["dbe66e14e49b474b97a357cdf30226ef","Biceps","1:43","Standing cable curl"],
+  rope_pushdown:["839a3315494045a58731c390540909fc","Triceps","1:33","Cable pushdown"],
+  hip_thrust:["db57ced1bc044db88a6a3c14db621e43","Glutes","1:54","Glute bridge / hip thrust"],
+  leg_ext:["67ae29dabbee4ce092a2458be0664fc4","Quads","3:11","Leg extension, toes out"],
+  bss:["67ae29dabbee4ce092a2458be0664fc4","Quads","4:30","Bulgarian split squat"],
+  leg_curl:["c8cd36419ad34856a6ffc2d762d12a65","Hamstrings","2:28","Lying leg curl"],
+  deadlift:["c8cd36419ad34856a6ffc2d762d12a65","Hamstrings","0:43","Romanian deadlift (the fallback lift)"]
 };
 const DAYS = {
   pushA:{code:"PA", name:"Push A", focus:"Neck · Incline press · Squat", ex:[["neck_curl",4],["neck_ext",4],["incline_db",4],["dip",4],["back_squat",4],["lat_raise",4],["rope_pushdown",4],["cable_crunch",4]]},
@@ -385,7 +412,8 @@ function workoutHTML(){
     h += `<article class="ex" aria-label="${esc(ex.name)}">
       <div class="ex-top"><h3>${esc(ex.name)}</h3><button class="btn small" data-how="${key}" aria-expanded="${!!S.open[key]}">Form tips</button></div>
       <div class="ex-meta"><span class="chip ${ex.rest==="heavy"?"heavy":""}">${e.sets.length} × ${ex.lo}–${ex.hi}${ex.secs?" sec":""}${ex.each?" each":""}</span><span class="chip">Rest ${REST[ex.rest]%60?REST[ex.rest]+" sec":REST[ex.rest]/60+" min"}</span><span class="chip num">${doneCount}/${e.sets.length} done</span></div>
-      ${VID[exId.replace("__2","")] ? (v=>`<a class="watch" href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><span class="w"><b>${esc(v[1])}</b><span>${esc(v[2])} · ${esc(v[3])} · Watch on YouTube</span></span></a>`)(VID[exId.replace("__2","")]) : ""}
+      ${HAMZA[exId.replace("__2","")] ? (h=>`<a class="watch hamza" href="${SKOOL}${h[0]}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><span class="w"><b>Hamza's demo · skip to ${esc(h[2])}</b><span>${esc(h[3])} · ${esc(h[1])} lesson on Skool</span></span></a>`)(HAMZA[exId.replace("__2","")]) : ""}
+      ${VID[exId.replace("__2","")] ? (v=>`<a class="watch ${HAMZA[exId.replace("__2","")]?"alt":""}" href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><span class="w"><b>${esc(v[1])}</b><span>${esc(v[2])} · ${esc(v[3])} · YouTube</span></span></a>`)(VID[exId.replace("__2","")]) : ""}
       ${S.open[key]?`<div class="how"><p>${esc(ex.cue)}</p><a href="${YT(ex.q)}" target="_blank" rel="noopener">More videos on YouTube ↗</a></div>`:""}
       <div class="hint ${hint.up?"up":""}">${esc(hint.t)}</div>
       <div class="sets"><span class="h">Set</span><span class="h">Last time</span><span class="h">${unitLbl}</span><span class="h">${repLbl}</span><span class="h">✓</span>`;
