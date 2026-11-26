@@ -163,6 +163,7 @@ const EX = {
   neck_ext:{name:"Neck extension (back)", rest:"short", lo:15, hi:20, cue:"Face down on a bench, head off the end, plate on the back of your head (or none). Chin down, then lift your head by pointing your chin forward and up. Slow, small range, never jerk.", q:"prone neck extension plate bench"},
   incline_db:{name:"Incline dumbbell press", rest:"heavy", lo:6, hi:10, cue:"Bench at 45°. Kick the dumbbells up off your knees. Elbows at 45°, lower until elbows are level with your body, press up and together, squeeze.", q:"incline dumbbell press form"},
   dip:{name:"Chest dip", rest:"normal", lo:8, hi:12, unit:"+kg", cue:"Lean slightly forward, elbows back (not flared), lower until shoulders are level with your hands, press to lockout. Use the assisted machine if needed. Weight = added kg.", q:"chest dip proper form"},
+  zercher_squat:{name:"Zercher squat", rest:"heavy", lo:6, hi:10, cue:"Bar in the crook of your elbows (wrap a towel or pad around it), hands clasped, elbows tight to your body. Feet shoulder width, toes slightly out. Brace hard, sit straight down with your chest up, as deep as you can with a flat back, drive up through mid-foot. The bar in front keeps you upright, so it's easier on the lower back than a back squat. Start light: elbows get sore before legs do.", q:"how to zercher squat form"},
   back_squat:{name:"Barbell back squat", rest:"heavy", lo:6, hi:8, cue:"Bar on upper traps, brace hard. Feet shoulder width, toes slightly out. Sit between your heels, chest up, as deep as you can with a flat lower back. Use safety bars. Lower back rounds or hurts → stop, switch to hack squat.", q:"barbell back squat form tutorial"},
   lat_raise:{name:"Dumbbell lateral raise", rest:"short", lo:15, hi:20, cue:"Light weight (Hamza uses 5–7 kg). Stand tall, slight elbow bend, raise to shoulder height, hold 1 sec, lower slowly. No swing, no shrug.", q:"dumbbell lateral raise proper form"},
   rope_pushdown:{name:"Rope triceps pushdown", rest:"normal", lo:12, hi:15, cue:"Cable high, lean slightly forward, elbows pinned. Push down and slightly in, spread the rope, squeeze, control up.", q:"rope tricep pushdown form"},
@@ -195,6 +196,7 @@ const VID = {
   neck_ext:["TRA8THtfqH0","Prone Neck Extension Over Bench","Surfing Longevity","1:03"],
   incline_db:["IP4oeKh1Sd4","Incline Dumbbell Bench Press — 2 Minute Tutorial","Max Euceda","2:00"],
   dip:["sM6XUdt1rm4","How To: Dip — chest vs triceps","ScottHermanFitness","4:21"],
+  zercher_squat:["vpy4ADmlo1E","How To: Zercher Squat","ScottHermanFitness","1:52"],
   back_squat:["my0tLDaWyDU","How To Squat Correctly (No Back Pain)","Squat University","7:38"],
   lat_raise:["PzsMitRdI_8","Dumbbell Lateral Raise — 2 Minute Tutorial","Max Euceda","2:01"],
   rope_pushdown:["vB5OHsJ3EME","How To: Rope Push-Down","ScottHermanFitness","1:33"],
@@ -243,7 +245,7 @@ const HAMZA = {
   deadlift:["c8cd36419ad34856a6ffc2d762d12a65","Hamstrings","0:43","Romanian deadlift (the fallback lift)"]
 };
 const DAYS = {
-  pushA:{code:"PA", name:"Push A", focus:"Neck · Incline press · Squat", ex:[["neck_curl",4],["neck_ext",4],["incline_db",4],["dip",4],["back_squat",4],["lat_raise",4],["rope_pushdown",4],["cable_crunch",4]]},
+  pushA:{code:"PA", name:"Push A", focus:"Neck · Incline press · Zercher squat", ex:[["neck_curl",4],["neck_ext",4],["incline_db",4],["dip",4],["zercher_squat",4],["lat_raise",4],["rope_pushdown",4],["cable_crunch",4]]},
   pullA:{code:"LA", name:"Pull A", focus:"Traps · Deadlift · Pull-ups", ex:[["bb_shrug",4],["deadlift",4],["pullup",4],["sa_row",4],["face_pull",4],["cable_curl",4],["knee_raise",4]]},
   pushB:{code:"PB", name:"Push B", focus:"Bench · Split squat · Neck", ex:[["bench",4],["chest_fly",4],["bss",4],["leg_ext",4],["lat_raise",4],["oh_ext",4],["neck_curl",4],["neck_ext",4],["decline_crunch",4]]},
   pullB:{code:"LB", name:"Pull B", focus:"Traps · Row · Hip thrust", ex:[["bb_shrug",4],["bb_row",4],["rev_pulldown",4],["hip_thrust",4],["leg_curl",4],["back_ext",4],["y_raise",4],["ez_curl",4],["plank",4]]}
