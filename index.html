@@ -410,7 +410,7 @@ function workoutHTML(){
   const seen = {};
   for (const [exId] of day.ex){
     const key = seen[exId] ? exId+"__2" : exId; seen[exId]=true;
-    const ex=EX[exId], e=s.entries[key]; if(!e) continue;
+    const ex=EX[exId]; if(!ex) continue; if(!s.entries[key]) s.entries[key]={sets:Array.from({length:4},()=>({w:"",r:"",done:false}))}; const e=s.entries[key];
     const prev=lastFor(exId, s.id), hint=hintFor(exId, prev);
     const unitLbl = ex.unit==="bw" ? "kg" : (ex.unit==="+kg" ? "+kg" : "kg");
     const repLbl = ex.secs ? "sec" : (ex.each ? "reps/side" : "reps");
