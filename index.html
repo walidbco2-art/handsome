@@ -36,12 +36,12 @@ a{color:var(--accent)}
 .num{font-variant-numeric:tabular-nums}
 
 /* header */
-header{flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);margin-bottom:14px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);margin-bottom:14px}
 .logo{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line)}
 .brand{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.02em;text-transform:none;flex:1;min-width:0}
 .brand small{display:block;font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)}
-.tabs{display:flex;gap:4px;width:100%;background:var(--surface-2);border-radius:999px;padding:3px}
-.tabs button{flex:1;border:0;background:none;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted)}
+.tabs{display:flex;gap:4px;background:var(--surface-2);border-radius:999px;padding:3px}
+.tabs button{border:0;background:none;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.12)}
 .btn{border:0;border-radius:10px;padding:10px 14px;font-weight:600;background:var(--surface-2)}
 .btn.primary{background:var(--accent);color:var(--accent-fg)}
@@ -53,20 +53,6 @@ header{flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);z-index:5
 .watch .w{flex:1;min-width:0}
 .watch .w b{display:block;font-size:14px}
 .watch .w span{font-size:12px;color:var(--muted)}
-.st-part{margin:18px 0 8px}
-.st{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;display:grid;gap:8px}
-.st.done{border-color:var(--done);background:var(--done-bg)}
-.st-top{display:flex;gap:10px;align-items:center}
-.st-top b{flex:1;min-width:0}
-.st-dose{font-size:13px;color:var(--muted)}
-.st-how{font-size:14px;margin:0}
-.st-row{display:flex;gap:8px;flex-wrap:wrap}
-.st-row a.btn{text-decoration:none;color:var(--fg)}
-.st .check{width:44px;flex:none}
-.st.done .check{background:var(--done);border-color:var(--done);color:#fff}
-.st-sum{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;gap:14px;align-items:center}
-.st-sum .big{font-family:var(--display);font-weight:800;font-size:34px;line-height:1}
-.st-sum span{color:var(--muted);font-size:13px}
 .watch.hamza{background:var(--accent);color:#fff}
 .watch.hamza .w span{color:rgba(255,255,255,.85)}
 .watch.hamza .play{background:#fff}
@@ -154,7 +140,6 @@ header{flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);z-index:5
     <div class="brand">walid handsome<small id="sub">Loading your workouts…</small></div>
     <nav class="tabs" aria-label="Sections">
       <button id="tab-train" aria-pressed="true">Train</button>
-      <button id="tab-stretch" aria-pressed="false">Stretch</button>
       <button id="tab-history" aria-pressed="false">History</button>
     </nav>
   </header>
@@ -263,186 +248,6 @@ const HAMZA = {
   leg_curl:["c8cd36419ad34856a6ffc2d762d12a65","Hamstrings","2:28","Lying leg curl"],
   deadlift:["c8cd36419ad34856a6ffc2d762d12a65","Hamstrings","0:43","Romanian deadlift (the fallback lift)"]
 };
-// Daily mobility & stretch routine (20 min). Built 27 Nov 2026 from saved reels.
-const STRETCH = [
-[
-"catcow",
-1,
-"Cat-cow",
-"10 slow reps",
-0,
-1,
-"On hands and knees. Breathe in, drop your belly and lift your chest. Breathe out, round your back up and tuck your chin. Move one vertebra at a time.",
-"https://www.youtube.com/watch?v=1Y0YjXS9sKI",
-"Hinge Health · YouTube"
-],
-[
-"wipers",
-1,
-"Prone windshield wipers",
-"10 each side",
-0,
-1,
-"Lie face down, forehead on your hands, knees bent 90° with feet up. Let both shins drop slowly to one side, then the other. Hips stay on the floor.",
-"https://www.instagram.com/p/DfXfXYssVzt/",
-"The Sculptor · Instagram"
-],
-[
-"scorpion",
-1,
-"Prone scorpion crossovers (gentle)",
-"6 each side",
-0,
-1,
-"Face down, arms out in a T. Bend one knee and reach that foot across toward the opposite hand, slowly, only as far as is comfortable. Keep both shoulders down. Skip if it pinches your lower back.",
-"https://www.instagram.com/p/DfXfXYssVzt/",
-"The Sculptor · Instagram"
-],
-[
-"ninety",
-1,
-"90/90 hip switches",
-"10 total",
-0,
-1,
-"Sit with both knees bent 90°, one leg in front, one to the side. Keeping feet planted, rotate both knees to the other side. Sit tall, use your hands behind you if needed.",
-"https://www.instagram.com/p/DeVlIoFRgHk/",
-"Garrett Miller · Instagram"
-],
-[
-"bridge",
-1,
-"Glute bridge",
-"12 reps, 2-sec squeeze",
-0,
-1,
-"On your back, knees bent, feet flat. Drive through your heels, lift your hips to a straight line, squeeze glutes 2 seconds, lower slowly. Wakes up the glutes so the hip flexors and lower back can relax.",
-"https://www.instagram.com/p/DeVlIoFRgHk/",
-"Garrett Miller · Instagram"
-],
-[
-"wgs",
-1,
-"World's greatest stretch",
-"4 each side",
-0,
-1,
-"Step into a long lunge, both hands inside the front foot. Drop the back knee if needed. Rotate your chest and reach the inside arm to the ceiling, then back down. Switch sides.",
-"https://www.instagram.com/p/DeVlIoFRgHk/",
-"Garrett Miller · Instagram"
-],
-[
-"pump",
-1,
-"Down dog to cobra flow",
-"8 reps",
-0,
-1,
-"From down dog (hips high, heels toward floor), shift forward and lower your hips into a gentle cobra: elbows soft, hips low, no crunch in the lower back. Push back to down dog.",
-"https://www.instagram.com/p/DgGWTl4yiku/",
-"Trevor Shan · Instagram"
-],
-[
-"lizard",
-1,
-"Lizard lunge hip circles",
-"5 each side",
-0,
-1,
-"Low lunge, both hands inside the front foot, back knee down on a towel. Slowly circle your hips: forward, out, back, in. Small circles first.",
-"https://www.instagram.com/p/Dfs9VZdo2Ra/",
-"Dallas Keller · Instagram"
-],
-[
-"hipflexor",
-2,
-"Half-kneeling hip flexor stretch",
-"45 s each side",
-45,
-2,
-"Kneel on one knee (towel under it). Squeeze the glute of the back leg and tuck your pelvis under. That alone should stretch the front of the hip. Only then shift forward a little. No arching the lower back.",
-"https://www.youtube.com/watch?v=gqoPYLUgP48",
-"[P]rehab · YouTube"
-],
-[
-"pigeon",
-2,
-"Pigeon stretch",
-"60 s each side",
-60,
-2,
-"Front shin across in front of you, back leg straight behind. Square your hips and lean your chest forward over the front leg. Knee hurts → do it on your back as a figure-4 instead.",
-"https://www.instagram.com/p/DgGWTl4yiku/",
-"Trevor Shan · Instagram"
-],
-[
-"frog",
-2,
-"Frog stretch",
-"60 s",
-60,
-1,
-"On hands and knees, slide your knees wide, ankles in line with knees. Rock your hips back slowly until you feel the inner thighs. Forearms down if you can.",
-"https://www.youtube.com/watch?v=20ZWXZPQbpI",
-"Squat University · YouTube"
-],
-[
-"hamstring",
-2,
-"Lying hamstring stretch (towel or belt)",
-"45 s each side",
-45,
-2,
-"On your back, loop a towel or belt around one foot, raise the straight leg until you feel the back of the thigh. Other leg flat on the floor. Lower back stays down.",
-"https://www.youtube.com/watch?v=Il1L75v6gq0",
-"AskDoctorJo · YouTube"
-],
-[
-"twist",
-2,
-"Lying spinal twist",
-"45 s each side",
-45,
-2,
-"On your back, pull one knee across your body toward the floor, opposite arm out to the side, look away from the knee. Let gravity do it.",
-"https://www.instagram.com/p/Df3ASrLPW3X/",
-"Lenny · Instagram"
-],
-[
-"child",
-2,
-"Child's pose with lat reach",
-"60 s",
-60,
-1,
-"Kneel, sit back toward your heels, arms long in front. Walk both hands to one side for 30 s, then the other, to stretch the lats and lower back.",
-"https://www.youtube.com/watch?v=uGWsHEXSg4U",
-"The Doctors of PT · YouTube"
-],
-[
-"doorway",
-3,
-"Doorway pec stretch",
-"30 s each side",
-30,
-2,
-"Forearm on the door frame, elbow at shoulder height. Step through and turn your chest away until you feel the front of the chest and shoulder. Opens up rounded shoulders.",
-"https://www.youtube.com/watch?v=qv6el4OhHjA",
-"REACH Rehab · YouTube"
-],
-[
-"wallangel",
-3,
-"Wall angels",
-"10 slow reps",
-0,
-1,
-"Back, head and butt against a wall, arms in a goalpost shape against it. Slide your arms up and down slowly, keeping wrists and elbows touching the wall. Ribs down.",
-"https://www.youtube.com/watch?v=1UU4VvklQ44",
-"Vive Health · YouTube"
-]
-];
-const PARTS = {1:"Part 1 · Mobility (about 9 min)",2:"Part 2 · Deep stretches (about 9 min)",3:"Part 3 · Shoulders and posture (about 2 min)"};
 const DAYS = {
   pushA:{code:"PA", name:"Push A", focus:"Neck · Incline press · Zercher squat", ex:[["neck_curl",4],["neck_ext",4],["incline_db",4],["dip",4],["zercher_squat",4],["lat_raise",4],["rev_fly",4],["rope_pushdown",4],["cable_crunch",4]]},
   pullA:{code:"LA", name:"Pull A", focus:"Deadlift · Traps · Back thickness", ex:[["deadlift",4],["bb_shrug",4],["pullup",4],["cs_row",4],["face_pull",4],["y_raise",4],["cable_curl",4],["knee_raise",4]]},
@@ -453,7 +258,7 @@ const ORDER = ["pushA","pullA","pushB","pullB"];
 const WEEK = [["Sun","Rest",null],["Mon","Push A","pushA"],["Tue","Boxing",null],["Wed","Pull A","pullA"],["Thu","Boxing",null],["Fri","Push B","pushB"],["Sat","Pull B","pullB"]];
 
 // ---------- State ----------
-const S = {stretchLog:(()=>{try{return JSON.parse(localStorage.getItem("handsome.stretch"))||{}}catch(e){return {}}})(), tab:"train", sessions:[], active:null, open:{}, confirm:null, expanded:{}, cloud:"loading", timer:null};
+const S = {tab:"train", sessions:[], active:null, open:{}, confirm:null, expanded:{}, cloud:"loading", timer:null};
 const $ = id => document.getElementById(id);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const LS = {get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}, del(k){try{localStorage.removeItem(k)}catch(e){}}};
@@ -557,7 +362,7 @@ function tick(){
   el.hidden=false; el.classList.toggle("over", left<=0);
   const a=Math.abs(left);
   $("timer-t").textContent=(left<0?"+":"")+Math.floor(a/60)+":"+String(a%60).padStart(2,"0");
-  $("timer-lbl").textContent= left>0 ? (S.tab==="stretch"?"Hold · ":"Rest · ")+S.timer.label : (S.tab==="stretch"?"Time — switch side or next move":"Rest done — next set");
+  $("timer-lbl").textContent= left>0 ? "Rest · "+S.timer.label : "Rest done — next set";
 }
 setInterval(tick,500);
 $("timer-plus").onclick=()=>{ if(S.timer){S.timer.end+=15000; tick();} };
@@ -568,10 +373,9 @@ $("timer-skip").onclick=stopTimer;
 function render(){
   $("tab-train").setAttribute("aria-pressed", S.tab==="train");
   $("tab-history").setAttribute("aria-pressed", S.tab==="history");
-  $("tab-stretch").setAttribute("aria-pressed", S.tab==="stretch");
   const n = doneSessions().length;
   $("sub").textContent = S.cloud==="loading" ? "Loading your workouts…" : n+" workout"+(n===1?"":"s")+" logged";
-  $("view").innerHTML = S.tab==="stretch" ? stretchHTML() : S.tab==="history" ? historyHTML() : (S.active ? workoutHTML() : homeHTML());
+  $("view").innerHTML = S.tab==="history" ? historyHTML() : (S.active ? workoutHTML() : homeHTML());
 }
 function nextInRotation(){
   const last = doneSessions()[0];
@@ -641,29 +445,6 @@ function workoutHTML(){
 function backupHTML(){
   return `<section class="backup" aria-label="Backup"><b>Backup</b><p>Your workouts live on this phone. Save a backup file every week or two, and send it to Claude when you want your progress reviewed.</p><div><button class="btn small" data-act="export">Save backup file</button><button class="btn small" data-act="copy">Copy backup</button><label class="btn small" for="restore">Restore from file</label><input type="file" id="restore" accept="application/json,.json" hidden></div><p id="backup-msg"></p></section>`;
 }
-function stretchDone(){ return S.stretchLog[todayISO()] || []; }
-function stretchStreak(){
-  let n=0; const d=new Date();
-  for(;;){ const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-    const done=(S.stretchLog[k]||[]).length>=STRETCH.length;
-    if(done) n++; else if(n>0 || k!==todayISO()) break;
-    d.setDate(d.getDate()-1); if(n>3650) break; }
-  return n;
-}
-function stretchHTML(){
-  const done=stretchDone(), total=STRETCH.length;
-  let h=`<div class="st-sum"><div class="big num">${done.length}/${total}</div><div><b>${done.length>=total?"Done for today. Nice.":"Today's 20-minute routine"}</b><br><span>${stretchStreak()} day streak · mobility first, then deep stretches</span></div></div>`;
-  let part=0;
-  for (const [id,p,name,dose,secs,sides,how,link,label] of STRETCH){
-    if(p!==part){ part=p; h+=`<div class="eyebrow st-part">${esc(PARTS[p])}</div>`; }
-    const isDone=done.includes(id);
-    h+=`<article class="st ${isDone?"done":""}"><div class="st-top"><b>${esc(name)}</b><span class="st-dose">${esc(dose)}</span><button class="check" data-st="${id}" aria-pressed="${isDone}" aria-label="${isDone?"Undo":"Done"}: ${esc(name)}">✓</button></div>`+
-       `<p class="st-how">${esc(how)}</p><div class="st-row"><a class="btn small" href="${link}" target="_blank" rel="noopener">▶ ${esc(label)}</a>`+
-       (secs?`<button class="btn small" data-hold="${secs}" data-holdname="${esc(name)}">Start ${secs}s timer${sides>1?" (per side)":""}</button>`:"")+`</div></article>`;
-  }
-  h+=`<p class="status">Sharp pain, or pain running down a leg: stop that move. A stretch should feel like 6 out of 10, never more.</p>`;
-  return h;
-}
 function historyHTML(){
   const list = doneSessions();
   if (!list.length) return backupHTML() + `<div class="empty">No workouts logged yet.<br>Finish your first session and it shows up here with every set you did.</div>`;
@@ -692,9 +473,6 @@ document.addEventListener("click", ev=>{
   const d=t.dataset;
   if (t.id==="tab-train"){ S.tab="train"; S.confirm=null; render(); return; }
   if (t.id==="tab-history"){ S.tab="history"; S.confirm=null; render(); return; }
-  if (t.id==="tab-stretch"){ S.tab="stretch"; S.confirm=null; render(); window.scrollTo(0,0); return; }
-  if (d.st){ const k=todayISO(); const list=new Set(S.stretchLog[k]||[]); list.has(d.st)?list.delete(d.st):list.add(d.st); S.stretchLog[k]=[...list]; LS.set("handsome.stretch", S.stretchLog); render(); return; }
-  if (d.hold){ startTimer(+d.hold, d.holdname); return; }
   if (d.start){ if(S.active){ S.tab="train"; render(); return; } startWorkout(d.start); return; }
   if (d.how){ S.open[d.how]=!S.open[d.how]; render(); return; }
   if (d.check){ const [k,i]=d.check.split(":"); toggleSet(k,+i); return; }
@@ -719,7 +497,7 @@ document.addEventListener("input", ev=>{
 setInterval(()=>{ const e=$("elapsed"); if(e&&S.active) e.textContent=Math.floor((Date.now()-S.active.startedAt)/60000)+" min"; }, 15000);
 
 // ---------- Backup ----------
-function backupText(){ return JSON.stringify({app:"handsome", version:1, exportedAt:new Date().toISOString(), sessions:doneSessions(), stretch:S.stretchLog}, null, 1); }
+function backupText(){ return JSON.stringify({app:"handsome", version:1, exportedAt:new Date().toISOString(), sessions:doneSessions()}, null, 1); }
 function backupMsg(t){ const e=document.getElementById("backup-msg"); if(e) e.textContent=t; }
 function exportBackup(){
   const blob=new Blob([backupText()],{type:"application/json"});
@@ -740,7 +518,6 @@ document.addEventListener("change", ev=>{
     let added=0;
     for (const x of list){ if(x && x.id && x.status==="done" && !S.sessions.find(s=>s.id===x.id)){ S.sessions.push(x); added++; } }
     LS.set("ironlog.sessions", S.sessions.filter(s=>s.status==="done"));
-    if (data.stretch && typeof data.stretch==="object"){ for (const k in data.stretch) S.stretchLog[k]=[...new Set([...(S.stretchLog[k]||[]),...data.stretch[k]])]; LS.set("handsome.stretch", S.stretchLog); }
     render(); backupMsg(added+" workout"+(added===1?"":"s")+" restored.");
   }).catch(()=>backupMsg("That file isn't a Handsome backup. Pick a file saved with Save backup file."));
 });
